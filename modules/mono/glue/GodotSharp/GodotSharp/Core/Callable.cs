@@ -69,9 +69,9 @@ namespace Godot
         }
 
         private unsafe Callable(Delegate @delegate,
-            delegate* managed<object, NativeVariantPtrArgs, out godot_variant, void> trampoline)
+            delegate* managed<object, NativeVariantPtrArgs, out godot_variant, void> trampoline, GodotObject target)
         {
-            _target = @delegate?.Target as GodotObject;
+            _target = @delegate?.Target as GodotObject ?? target;
             _method = null;
             _delegate = @delegate;
             _trampoline = trampoline;
@@ -198,7 +198,7 @@ namespace Godot
         /// <param name="trampoline">Trampoline function pointer for invoking the delegate.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static unsafe Callable CreateWithUnsafeTrampoline(Delegate @delegate,
-            delegate* managed<object, NativeVariantPtrArgs, out godot_variant, void> trampoline)
-            => new(@delegate, trampoline);
+            delegate* managed<object, NativeVariantPtrArgs, out godot_variant, void> trampoline, GodotObject target = default)
+            => new(@delegate, trampoline, target);
     }
 }

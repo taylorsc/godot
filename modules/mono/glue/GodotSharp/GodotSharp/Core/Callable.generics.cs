@@ -28,8 +28,9 @@ public readonly partial struct Callable
     /// Constructs a new <see cref="Callable"/> for the given <paramref name="action"/>.
     /// </summary>
     /// <param name="action">Action method that will be called.</param>
+    /// <param name="target">Object that controls the lifetime of the Callable.</param>
     public static unsafe Callable From(
-        Action action
+        Action action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -41,12 +42,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0>(
-        Action<T0> action
+        Action<T0> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -60,12 +61,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1>(
-        Action<T0, T1> action
+        Action<T0, T1> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -80,12 +81,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2>(
-        Action<T0, T1, T2> action
+        Action<T0, T1, T2> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -101,12 +102,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3>(
-        Action<T0, T1, T2, T3> action
+        Action<T0, T1, T2, T3> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -123,12 +124,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3, [MustBeVariant] T4>(
-        Action<T0, T1, T2, T3, T4> action
+        Action<T0, T1, T2, T3, T4> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -146,12 +147,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3, [MustBeVariant] T4, [MustBeVariant] T5>(
-        Action<T0, T1, T2, T3, T4, T5> action
+        Action<T0, T1, T2, T3, T4, T5> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -170,12 +171,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3, [MustBeVariant] T4, [MustBeVariant] T5, [MustBeVariant] T6>(
-        Action<T0, T1, T2, T3, T4, T5, T6> action
+        Action<T0, T1, T2, T3, T4, T5, T6> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -195,12 +196,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3, [MustBeVariant] T4, [MustBeVariant] T5, [MustBeVariant] T6, [MustBeVariant] T7>(
-        Action<T0, T1, T2, T3, T4, T5, T6, T7> action
+        Action<T0, T1, T2, T3, T4, T5, T6, T7> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -221,12 +222,12 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
-    /// <inheritdoc cref="From(Action)"/>
+    /// <inheritdoc cref="From(Action, GodotObject?)"/>
     public static unsafe Callable From<[MustBeVariant] T0, [MustBeVariant] T1, [MustBeVariant] T2, [MustBeVariant] T3, [MustBeVariant] T4, [MustBeVariant] T5, [MustBeVariant] T6, [MustBeVariant] T7, [MustBeVariant] T8>(
-        Action<T0, T1, T2, T3, T4, T5, T6, T7, T8> action
+        Action<T0, T1, T2, T3, T4, T5, T6, T7, T8> action, GodotObject? target = default
     )
     {
         static void Trampoline(object delegateObj, NativeVariantPtrArgs args, out godot_variant ret)
@@ -248,7 +249,7 @@ public readonly partial struct Callable
             ret = default;
         }
 
-        return CreateWithUnsafeTrampoline(action, &Trampoline);
+        return CreateWithUnsafeTrampoline(action, &Trampoline, target);
     }
 
     /// <summary>
